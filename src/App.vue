@@ -178,7 +178,7 @@
     </div>
     <div class="mint-info">
       <span class="minted-description red-description"
-        ><a href="https://opensea.io/collection/y000ts"
+        ><a href="https://opensea.io/collection/fr00ts"
           >Lovely Opensea collection
         </a></span
       >
