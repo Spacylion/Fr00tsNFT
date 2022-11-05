@@ -154,7 +154,7 @@
     </div>
     <div class="button-info">
       <div v-if="!getUserAccount">
-        <a class="button" id="mint-button" href="#">10 000</a>
+        <a class="button" id="mint-button" href="#">5 000</a>
       </div>
       <div v-else class="col-auto" style="height: 145px">
         <div>
@@ -169,7 +169,7 @@
           </button>
         </div>
         <div>
-          <h2 class="inputmint">{{ totalSupply }} / 10 000</h2>
+          <h2 class="inputmint">{{ totalSupply }} / 5 000</h2>
         </div>
       </div>
       <br />
