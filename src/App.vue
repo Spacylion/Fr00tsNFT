@@ -734,6 +734,14 @@ select.mint-input {
   .header {
     padding: 0 30px;
   }
+  .left {
+    height: 70vh;
+  }
+  .popuptem {
+    height: 50vh;
+    font-size: 12px;
+    padding: 4px;
+  }
 
   .header .container {
     grid-template-columns: 1fr;
