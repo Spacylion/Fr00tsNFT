@@ -1,7 +1,7 @@
 <template>
   <div v-if="isOpen" class="backdrop" @click="close">
     <div class="popup" @click.stop>
-      <h1 class="title">DeFr00t's Agreement</h1>
+      <h1 class="title">fr00t's Agreement</h1>
       <hr />
       <slot></slot>
       <hr />

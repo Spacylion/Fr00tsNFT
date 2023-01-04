@@ -148,7 +148,7 @@
       </template>
     </PopupVue>
 
-    <div class="defr00ts">
+    <div class="fr00ts">
       <div class="button11">
         <div v-if="!getUserAccount">
           <button
@@ -165,7 +165,7 @@
         </div>
       </div>
       <div>
-        <h1 class="free">Mint 1 FREE deFr00t</h1>
+        <h1 class="free">Mint 1 FREE fr00t</h1>
         <div class="flex items-center justify-center">
           <a class="hide" href="">
             <input
@@ -242,7 +242,7 @@
     </div>
     <div class="button-info">
       <div v-if="!getUserAccount">
-        <a class="button" id="mint-button" href="#">7,777 deFr00ts</a>
+        <a class="button" id="mint-button" href="#">7,777 fr00ts</a>
       </div>
       <div v-else class="col-auto" style="height: 145px">
         <div>
@@ -265,8 +265,8 @@
       <span class="price">0.003 ETH each</span>
     </div>
     <div class="mint-info">
-      <span class="minted-description">deFr00ts left:</span>
-      <h2 class="effect-holo">{{ totalSupply }} / 10000</h2>
+      <span class="minted-description">fr00ts left:</span>
+      <h2 class="effect-holo">{{ totalSupply }} / 7,777</h2>
       <br />
       <br />
       <span class="minted-description red-description"
@@ -539,7 +539,7 @@ body {
   top: 10px;
   right: 10px;
 }
-.defr00ts {
+.fr00ts {
   align-items: center;
   justify-content: center;
 }
