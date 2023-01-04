@@ -127,19 +127,85 @@
         </span>
       </div>
     </div>
-    <div class="t000tzBuut">
-      <div v-if="!getUserAccount">
-        <button
-          type="button"
-          id="connect-wallet"
-          class="button"
-          @click.prevent="onConnect"
-        >
-          Connect wallet
-        </button>
+    <button @click="learnVue" class="left">
+      <h1 class="big">Disclaimer</h1>
+    </button>
+    <PopupVue ref="confirmationPopup">
+      <template #actions="{ confirm }" class="popuptem">
+        <h1 class="popuptem">
+          By minting or purchasing a fr00t (NFT) you acknowledge that you
+          understand you are buying a digital collectible piece of art with no
+          utility, no roadmap, and no promises attached. The twitter account has
+          been created for the sole purpose of Marketing/promoting these NFTs.
+          There are no plans to use the twitter account past the mint date. This
+          is not an investment and shouldn’t not be treated as such. There is
+          zero expectations for profit. You are buying nothing more than a
+          digital picture.
+        </h1>
+
+        &nbsp;
+        <button @click="confirm" :disabled="isConfirmationCorrect">OK</button>
+      </template>
+    </PopupVue>
+
+    <div class="defr00ts">
+      <div class="button11">
+        <div v-if="!getUserAccount">
+          <button
+            type="button"
+            id="connect-wallet"
+            class="button"
+            @click.prevent="onConnect"
+          >
+            Connect wallet
+          </button>
+        </div>
+        <div v-else class="col-auto" style="height: 145px">
+          <h1 href="" class="button">Connected</h1>
+        </div>
       </div>
-      <div v-else class="col-auto" style="height: 145px">
-        <h1 href="">CONNECTED</h1>
+      <div>
+        <h1 class="free">Mint 1 FREE deFr00t</h1>
+        <div class="flex items-center justify-center">
+          <a class="hide" href="">
+            <input
+              type="number"
+              v-model="mintAmount"
+              class="
+                w-32
+                h-12
+                lg:h-16
+                text-black text-center
+                outline-none
+                font-semibold
+                lg:text-2xl lg:px-2 lg:w-40
+              "
+            />
+          </a>
+
+          <div class="flex justify-center items-center space-x-8">
+            <button
+              class="
+                button1
+                bg-green
+                text-white
+                h-12
+                font-semibold
+                lg:h-16
+                px-8
+                lg:px-10
+                rounded-sm
+                lg:text-2xl lg:font-bold
+                hover:bg-red-400
+                duration-300
+              "
+              id="mint-btn"
+              @click.prevent="mintTokenFree"
+            >
+              {{ mintFreeText }}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
     <div>
@@ -149,12 +215,34 @@
         <option value="10">10</option>
         <option value="15">15</option>
         <option value="20">20</option>
-        <option value="30">30</option>
+        <option value="30">25</option>
       </select>
+    </div>
+    <div class="box1 flex justify-center items-center space-x-8">
+      <button
+        class="
+          button1
+          bg-blue-500
+          text-white
+          h-12
+          font-semibold
+          lg:h-16
+          px-8
+          lg:px-10
+          rounded-lg
+          lg:text-2xl lg:font-bold
+          hover:bg-red-400
+          duration-300
+        "
+        id="mint-btn"
+        @click.prevent="mintToken"
+      >
+        {{ mintText }}
+      </button>
     </div>
     <div class="button-info">
       <div v-if="!getUserAccount">
-        <a class="button" id="mint-button" href="#">5 000</a>
+        <a class="button" id="mint-button" href="#">7,777 deFr00ts</a>
       </div>
       <div v-else class="col-auto" style="height: 145px">
         <div>
@@ -169,27 +257,29 @@
           </button>
         </div>
         <div>
-          <h2 class="inputmint">{{ totalSupply }} / 5 000</h2>
+          <h2 class="inputmint">{{ totalSupply }} / 7,777</h2>
         </div>
       </div>
       <br />
       <br />
-      <span class="price">0.001 ETH each</span>
+      <span class="price">0.003 ETH each</span>
     </div>
     <div class="mint-info">
-      <span class="minted-description red-description"
-        ><a href="https://opensea.io/collection/fr00ts"
-          >Lovely Opensea collection
-        </a></span
-      >
-      <span class="minted-description red-description"
-        ><a href="https://etherscan.io/address/0x000"> Etherscan </a></span
-      >
-      <!-- <span class="minted-description">minted fr00ts</span> -->
-      <span class="minted-description">fr00ts left:</span>
+      <span class="minted-description">deFr00ts left:</span>
       <h2 class="effect-holo">{{ totalSupply }} / 10000</h2>
       <br />
       <br />
+      <span class="minted-description red-description"
+        ><a href="https://opensea.io/collection/fr00ts"
+          >OpenSea collection
+        </a></span
+      >
+      <span class="minted-description red-description"
+        ><a href="https://etherscan.io/address/0x000"
+          >Etherscan contract</a
+        ></span
+      >
+      <!-- <span class="minted-description">minted fr00ts</span> -->
     </div>
     <a href="https://twitter.com/fr00tsNFT">
       <img src="./images/follow.png" class="fixed right-4 bottom-4" alt="" />
@@ -202,27 +292,35 @@ import Web3 from "web3"
 import Web3Modal from "web3modal"
 import WalletConnectProvider from "@walletconnect/web3-provider"
 import { mapActions, mapGetters } from "vuex"
+import PopupVue from "./components/Popup.vue"
 
 export default {
+  components: { PopupVue },
   name: "Header",
+
   data() {
     return {
-      cost: "0.001",
+      confirmation: "",
+      free: "0",
+      cost: "0.003",
+      // cost: "0",
+      // chainId: "5",
       chainId: "1",
-
       mintAmount: 1,
       totalSupply: 0,
-
       web3Modal: "",
       mintText: "MINT",
+      mintFreeText: "FREE",
     }
   },
+  CONFIRMATION_TEXT: "Agree",
+
   beforeMount() {
     const providerOptions = {
       walletconnect: {
         package: WalletConnectProvider,
         options: {
-          infuraId: "ff64e719dd8d46c78b04eb7582fcf233",
+          infuraId: "d85fda7b424b4212ba72f828f48fbbe1",
         },
       },
     }
@@ -278,8 +376,60 @@ export default {
         this.SET_USER_ACCOUNT(accounts[0])
       })
     },
+    async learnVue() {
+      this.confirmation = ""
+
+      const popupResult = await this.$refs.confirmationPopup.open()
+
+      if (popupResult) {
+        alert("Confirmed!")
+      }
+    },
+    mintTokenFree() {
+      if (!this.getUserAccount) {
+        this.$toasted.show("Connect You Wallet!")
+        return
+      }
+      if (!this.mintAmount) {
+        this.$toasted.show("Enter minting amount")
+        return
+      }
+      this.mintFreeText = "Minting..."
+
+      let gasLimit = Number(this.gasLimit) * Number(this.mintAmount)
+      let mintPriceFree = Number(this.mintAmount) * Number(this.free)
+      let value = this.getWeb3.utils.toWei(mintPriceFree.toString(), "ether")
+
+      this.getInstance.methods
+        .mint(Number(this.mintAmount))
+        .send({
+          gasLimit: gasLimit,
+          from: this.getUserAccount,
+          to: this.getContractAddress,
+          value: value,
+        })
+        .on("transactionHash", (hash) => {
+          console.log("Transaction Hash: ", hash)
+          this.$toasted.show("Transaction is submitted")
+        })
+        .on("receipt", (receipt) => {
+          this.mintFreeText = "FREE"
+          this.readValue()
+          console.log("Receipt: ", receipt)
+          this.$toasted.show("Transaction Completed Successfully")
+        })
+        .on("error", (error, receipt) => {
+          this.mintFreeText = "FREE"
+          console.log("Error receipt: ", receipt)
+          this.$toasted.show("Transaction Rejected")
+        })
+    },
 
     mintToken() {
+      if (!this.getUserAccount) {
+        this.$toasted.show("Connect You Wallet!")
+        return
+      }
       if (!this.mintAmount) {
         this.$toasted.show("Enter minting amount")
         return
@@ -341,6 +491,10 @@ export default {
       "getContractABI",
       "getContractAddress",
     ]),
+
+    isConfirmationCorrect() {
+      return this.confirmation === this.$options.CONFIRMATION_TEXT
+    },
   },
 }
 </script>
@@ -351,7 +505,26 @@ export default {
 html {
   scroll-behavior: smooth;
 }
-
+.hide {
+  display: none;
+}
+.big {
+  font-size: 24px;
+  font-weight: bold;
+}
+.popuptem {
+  text-align: justify;
+  padding: 14px;
+}
+.left {
+  position: fixed;
+  left: 14px;
+  top: 14px;
+}
+.free {
+  font-size: 24px;
+  font-style: oblique;
+}
 body {
   width: auto;
   height: 100vh;
@@ -361,8 +534,12 @@ body {
   margin: 0px;
   width: 100%;
 }
-
-.t000tzBuut {
+.button11 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.defr00ts {
   align-items: center;
   justify-content: center;
 }

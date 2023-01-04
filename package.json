@@ -1,5 +1,5 @@
 {
-  "name": "goblinmfer",
+  "name": "defr00t",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,6 +11,7 @@
     "all": "^0.0.0",
     "router": "^1.3.7",
     "sass": "^1.54.5",
+    "usemodal-vue3": "^0.3.7",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vue-toasted": "^1.1.28",
