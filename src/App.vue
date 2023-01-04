@@ -130,7 +130,7 @@
     <button @click="learnVue" class="left">
       <h1 class="big">Disclaimer</h1>
     </button>
-    <PopupVue ref="confirmationPopup">
+    <PopupVue ref="confirmationPopup" class="left1">
       <template #actions="{ confirm }" class="popuptem">
         <h1 class="popuptem">
           By minting or purchasing a fr00t (NFT) you acknowledge that you
@@ -157,7 +157,7 @@
             class="button"
             @click.prevent="onConnect"
           >
-            Connect wallet
+            Connect
           </button>
         </div>
         <div v-else class="col-auto" style="height: 145px">
@@ -510,7 +510,19 @@ html {
 }
 .big {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 900;
+  background-color: #aec0ff;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+  color: #000;
+
+  width: 160px;
+  line-height: 1.3em;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
 }
 .popuptem {
   text-align: justify;
@@ -551,9 +563,8 @@ body {
   justify-content: center;
   text-decoration: none;
   color: #000;
-  text-transform: lowercase;
   font-size: 28px;
-  width: 220px;
+  width: 160px;
   line-height: 1.3em;
   font-weight: 600;
   letter-spacing: 2px;
@@ -562,8 +573,8 @@ body {
 }
 
 .button:hover {
-  border-color: #3160ff;
-  color: #3160ff;
+  border-color: #31ffc1;
+  color: #31ffc1;
 }
 
 #mint-button:hover {
@@ -724,6 +735,12 @@ select.mint-input {
   display: none;
 }
 
+.button {
+  font-weight: bold;
+  background-color: #aec0ff;
+  padding: 0;
+}
+
 @media screen and (max-width: 980px) {
   #logo {
     grid-column: 1 / span 2;
@@ -734,9 +751,32 @@ select.mint-input {
   .header {
     padding: 0 30px;
   }
-  .left {
+  .left1 {
     height: 70vh;
   }
+
+  .big {
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    left: 10%;
+    padding: 0;
+    margin: 0;
+    top: 10px;
+    width: 110%;
+    background-color: #aec0ff;
+  }
+  .button {
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    right: 55%;
+    top: 14px;
+    width: 110%;
+    background-color: #aec0ff;
+    padding: 0;
+  }
+
   .popuptem {
     height: 50vh;
     font-size: 12px;
