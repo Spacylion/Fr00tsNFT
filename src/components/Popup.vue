@@ -66,9 +66,9 @@ export default {
 <style>
 .popup {
   top: 50px;
-  padding: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  padding: 10px;
+  left: 20%;
+  transform: translateX(-15%);
   position: fixed;
   z-index: 101;
   background-color: white;

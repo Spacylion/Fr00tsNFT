@@ -509,7 +509,7 @@ html {
   display: none;
 }
 .big {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 900;
   background-color: #aec0ff;
 
@@ -531,7 +531,7 @@ html {
 .left {
   position: fixed;
   left: 14px;
-  top: 14px;
+  bottom: 14px;
 }
 .free {
   font-size: 24px;
@@ -752,7 +752,7 @@ select.mint-input {
     padding: 0 30px;
   }
   .left1 {
-    height: 70vh;
+    height: 100vh;
   }
 
   .big {
@@ -762,7 +762,7 @@ select.mint-input {
     left: 10%;
     padding: 0;
     margin: 0;
-    top: 10px;
+    bottom: 10px;
     width: 110%;
     background-color: #aec0ff;
   }
