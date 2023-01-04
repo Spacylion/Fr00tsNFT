@@ -241,9 +241,7 @@
       </button>
     </div>
     <div class="button-info">
-      <div v-if="!getUserAccount">
-        <a class="button" id="mint-button" href="#">7,777 fr00ts</a>
-      </div>
+      <div v-if="!getUserAccount"></div>
       <div v-else class="col-auto" style="height: 145px">
         <div>
           <button
@@ -509,9 +507,9 @@ html {
   display: none;
 }
 .big {
-  font-size: 20px;
+  font-size: 12px;
   font-weight: 900;
-  background-color: #aec0ff;
+  background-color: #aebfff07;
 
   border-radius: 10px;
 
@@ -773,6 +771,15 @@ select.mint-input {
     right: 55%;
     top: 14px;
     width: 110%;
+    background-color: #aec0ff;
+    padding: 0;
+  }
+  .button12 {
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+
+    width: 100%;
     background-color: #aec0ff;
     padding: 0;
   }
