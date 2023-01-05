@@ -2,7 +2,7 @@ const state = () => ({
   web3: null,
   instance: null,
   userAccount: null,
-  contractAddress: "0x0000000000",
+  contractAddress: "0xaa31c8a28c9b66dB7ec8c86be9363d21b10478F7",
   contractABI: [
     { inputs: [], stateMutability: "nonpayable", type: "constructor" },
     { inputs: [], name: "ApprovalCallerNotOwnerNorApproved", type: "error" },

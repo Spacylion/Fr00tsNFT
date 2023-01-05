@@ -273,7 +273,8 @@
         </a></span
       >
       <span class="minted-description red-description"
-        ><a href="https://etherscan.io/address/0x000"
+        ><a
+          href="https://etherscan.io/address/0xaa31c8a28c9b66dB7ec8c86be9363d21b10478F7"
           >Etherscan contract</a
         ></span
       >
