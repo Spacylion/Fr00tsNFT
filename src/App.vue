@@ -244,7 +244,7 @@
       <div v-if="!getUserAccount"></div>
       <div v-else class="col-auto" style="height: 145px">
         <div>
-          <button
+          <!-- <button
             type="button"
             class="button _app_2DtRB mint"
             @click.prevent="mintToken"
@@ -252,7 +252,7 @@
             <a class="button">
               {{ mintText }}
             </a>
-          </button>
+          </button> -->
         </div>
         <div>
           <h2 class="inputmint">{{ totalSupply }} / 7,777</h2>
