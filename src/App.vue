@@ -182,19 +182,20 @@
               "
             />
           </a>
+          <br />
 
-          <div class="flex justify-center items-center space-x-8">
+          <div class="flex justify-center items-center space-x-8 pt-2">
             <button
               class="
                 button1
-                bg-green
+                bg-blue-500
                 text-white
                 h-12
                 font-semibold
                 lg:h-16
                 px-8
                 lg:px-10
-                rounded-sm
+                rounded-lg
                 lg:text-2xl lg:font-bold
                 hover:bg-red-400
                 duration-300
