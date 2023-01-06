@@ -216,7 +216,7 @@
         <option value="10">10</option>
         <option value="15">15</option>
         <option value="20">20</option>
-        <option value="30">25</option>
+        <option value="25">25</option>
       </select>
     </div>
     <div class="box1 flex justify-center items-center space-x-8">
